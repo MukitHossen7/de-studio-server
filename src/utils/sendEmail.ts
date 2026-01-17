@@ -7,7 +7,7 @@ import AppError from "../errorHelpers/AppError";
 const transporter = nodemailer.createTransport({
   host: config.SMTP.SMTP_HOST,
   port: Number(config.SMTP.SMTP_PORT),
-  secure: false, // Use true for port 465, false for port 587
+  secure: true, // Use true for port 465, false for port 587
   auth: {
     user: config.SMTP.SMTP_USER,
     pass: config.SMTP.SMTP_PASS,

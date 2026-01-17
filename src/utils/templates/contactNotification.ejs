@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <title>Inquiry Notification</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      supported-color-schemes: light dark;
+    }
+    .body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      word-break: break-word;
+      -webkit-font-smoothing: antialiased;
+      background-color: #f8fafc;
+    }
+    .content-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+    .value {
+      font-size: 16px;
+      color: #1e293b;
+      margin-bottom: 20px;
+    }
+    .message-section {
+      background-color: #f1f5f9;
+      border-radius: 8px;
+      padding: 24px;
+      color: #334155;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    .btn {
+      background-color: #000000;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    
+    /* Dark Mode Overrides */
+    @media (prefers-color-scheme: dark) {
+      .body { background-color: #0f172a !important; }
+      .content-card { background-color: #1e293b !important; border-color: #334155 !important; }
+      .value { color: #f1f5f9 !important; }
+      .label { color: #94a3b8 !important; }
+      .message-section { background-color: #334155 !important; color: #cbd5e1 !important; }
+      .btn { background-color: #ffffff !important; color: #000000 !important; }
+      h2 { color: #ffffff !important; }
+    }
+
+    @media (max-width: 600px) {
+      .container { width: 100% !important; padding: 20px !important; }
+    }
+  </style>
+</head>
+<body class="body">
+  <div role="article" aria-roledescription="email" aria-label="New Inquiry Notification" lang="en">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+        <td align="center" style="padding: 40px 20px;">
+          <!-- Main Container -->
+          <table class="container" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+            <tr>
+              <td align="left" style="padding-bottom: 32px;">
+                <h1 style="margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: #000000;">
+                  <span style="border-left: 4px solid #000; padding-left: 12px;">DE STUDIO</span>
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td class="content-card" style="padding: 40px;">
+                <h2 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #0f172a;">New Project Inquiry</h2>
+                <p style="margin: 0 0 32px 0; font-size: 16px; color: #64748b;">You have received a new contact submission from your studio website.</p>
+
+                <!-- Data Grid -->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr>
+                    <td width="50%" style="vertical-align: top;">
+                      <div class="label">Client Name</div>
+                      <div class="value"><%= name %></div>
+                    </td>
+                    <td width="50%" style="vertical-align: top;">
+                      <div class="label">Service Requested</div>
+                      <div class="value"><strong><%= service %></strong></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: top;">
+                      <div class="label">Email Address</div>
+                      <div class="value"><%= email %></div>
+                    </td>
+                    <td style="vertical-align: top;">
+                      <div class="label">Budget Range</div>
+                      <div class="value"><%= amount || 'Undisclosed' %></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="vertical-align: top;">
+                      <div class="label">Company / Phone</div>
+                      <div class="value">
+                        <%= companyName || 'Individual' %> 
+                        <% if (phone) { %> • <%= phone %> <% } %>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="label" style="margin-top: 10px;">Project Details</div>
+                <div class="message-section">
+                  <%= message %>
+                </div>
+
+                <div align="center" style="padding-top: 40px;">
+                  <a href="mailto:<%= email %>" class="btn">Start Conversation</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-top: 32px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
+                Sent via De Studio CRM Automated Notification.<br>
+                &copy; <%= new Date().getFullYear() %> De Studio. All rights reserved.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

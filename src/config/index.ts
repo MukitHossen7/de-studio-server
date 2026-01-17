@@ -10,5 +10,6 @@ export default {
     SMTP_USER: process.env.SMTP_USER as string,
     SMTP_PASS: process.env.SMTP_PASS as string,
     SMTP_FROM: process.env.SMTP_FROM as string,
+    SMTP_TO: process.env.SMTP_TO as string,
   },
 };

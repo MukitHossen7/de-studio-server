@@ -2,6 +2,8 @@ import cors from "cors";
 import express, { type Request, type Response } from "express";
 import cookieParser from "cookie-parser";
 import routes from "./routes/routes";
+import globalErrorHandler from "./middlewares/globalErrorHandler";
+import notFound from "./middlewares/notFound";
 
 const app = express();
 
@@ -12,7 +14,7 @@ app.use(
   cors({
     origin: ["https://go-pal.vercel.app", "http://localhost:3000"],
     credentials: true,
-  })
+  }),
 );
 
 // routes
@@ -24,5 +26,8 @@ app.get("/", (req: Request, res: Response) => {
     message: "De-Studio Backend is running...",
   });
 });
+
+app.use(globalErrorHandler);
+app.use(notFound);
 
 export default app;
